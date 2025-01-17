@@ -4,6 +4,7 @@
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:local="clr-namespace:CRUD_MVVM"
+    xmlns:views="clr-namespace:CRUD_MVVM.Views"
     Shell.FlyoutBehavior="Flyout"
     Title="CRUD_MVVM"
     Shell.BackgroundColor="#5c7a7a"
@@ -12,11 +13,26 @@
     >
 
     <ShellContent
-        Title="Home"
+        Title="Usuarios"
         ContentTemplate="{DataTemplate local:MainPage}"
         Route="MainPage" 
         />
-    
-    
+
+    <ShellContent
+        Title="Nuevo Usuario"
+        ContentTemplate="{DataTemplate views:UsuarioPage}"
+        Route="UsuariosPage" />
+
+    <ShellContent
+        Title="Pedidos"
+        ContentTemplate="{DataTemplate views:VerPedidosPage}"
+        Route="VerPedidoPage" />
+
+    <ShellContent
+        Title="Nuevo Pedido"
+        ContentTemplate="{DataTemplate views:PedidoPage}"
+        Route="PedidoPage" />
+
+
 
 </Shell>

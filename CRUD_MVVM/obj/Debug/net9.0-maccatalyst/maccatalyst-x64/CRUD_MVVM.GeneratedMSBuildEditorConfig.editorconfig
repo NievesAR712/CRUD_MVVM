@@ -53,8 +53,20 @@ build_metadata.AdditionalFiles.ManifestResourceName = CRUD_MVVM.Resources.Styles
 build_metadata.AdditionalFiles.TargetPath = Resources\Styles\Styles.xaml
 build_metadata.AdditionalFiles.RelativePath = Resources\Styles\Styles.xaml
 
+[C:/Users/anieves/source/repos/CRUD_MVVM/CRUD_MVVM/Views/PedidoPage.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = CRUD_MVVM.Views.PedidoPage.xaml
+build_metadata.AdditionalFiles.TargetPath = Views\PedidoPage.xaml
+build_metadata.AdditionalFiles.RelativePath = Views\PedidoPage.xaml
+
 [C:/Users/anieves/source/repos/CRUD_MVVM/CRUD_MVVM/Views/UsuarioPage.xaml]
 build_metadata.AdditionalFiles.GenKind = Xaml
 build_metadata.AdditionalFiles.ManifestResourceName = CRUD_MVVM.Views.UsuarioPage.xaml
 build_metadata.AdditionalFiles.TargetPath = Views\UsuarioPage.xaml
 build_metadata.AdditionalFiles.RelativePath = Views\UsuarioPage.xaml
+
+[C:/Users/anieves/source/repos/CRUD_MVVM/CRUD_MVVM/Views/VerPedidosPage.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = CRUD_MVVM.Views.VerPedidosPage.xaml
+build_metadata.AdditionalFiles.TargetPath = Views\VerPedidosPage.xaml
+build_metadata.AdditionalFiles.RelativePath = Views\VerPedidosPage.xaml

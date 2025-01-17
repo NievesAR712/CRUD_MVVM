@@ -22,52 +22,6 @@
         <member name="P:CRUD_MVVM.DTOs.UsuarioDTO.FechaRegistro">
             <inheritdoc cref="F:CRUD_MVVM.DTOs.UsuarioDTO.fechaRegistro"/>
         </member>
-        <member name="T:CRUD_MVVM.ViewModels.MainViewModel">
-            <inheritdoc/>
-            <inheritdoc/>
-            <inheritdoc/>
-            <inheritdoc/>
-        </member>
-        <member name="P:CRUD_MVVM.ViewModels.MainViewModel.ListaUsuario">
-            <inheritdoc cref="F:CRUD_MVVM.ViewModels.MainViewModel.listaUsuario"/>
-        </member>
-        <member name="F:CRUD_MVVM.ViewModels.MainViewModel.crearCommand">
-            <summary>The backing field for <see cref="P:CRUD_MVVM.ViewModels.MainViewModel.CrearCommand"/>.</summary>
-        </member>
-        <member name="P:CRUD_MVVM.ViewModels.MainViewModel.CrearCommand">
-            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IAsyncRelayCommand"/> instance wrapping <see cref="M:CRUD_MVVM.ViewModels.MainViewModel.Crear"/>.</summary>
-        </member>
-        <member name="F:CRUD_MVVM.ViewModels.MainViewModel.editarCommand">
-            <summary>The backing field for <see cref="P:CRUD_MVVM.ViewModels.MainViewModel.EditarCommand"/>.</summary>
-        </member>
-        <member name="P:CRUD_MVVM.ViewModels.MainViewModel.EditarCommand">
-            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IAsyncRelayCommand`1"/> instance wrapping <see cref="M:CRUD_MVVM.ViewModels.MainViewModel.Editar(CRUD_MVVM.DTOs.UsuarioDTO)"/>.</summary>
-        </member>
-        <member name="F:CRUD_MVVM.ViewModels.MainViewModel.eliminarCommand">
-            <summary>The backing field for <see cref="P:CRUD_MVVM.ViewModels.MainViewModel.EliminarCommand"/>.</summary>
-        </member>
-        <member name="P:CRUD_MVVM.ViewModels.MainViewModel.EliminarCommand">
-            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IAsyncRelayCommand`1"/> instance wrapping <see cref="M:CRUD_MVVM.ViewModels.MainViewModel.Eliminar(CRUD_MVVM.DTOs.UsuarioDTO)"/>.</summary>
-        </member>
-        <member name="T:CRUD_MVVM.ViewModels.UsuarioViewModel">
-            <inheritdoc/>
-            <inheritdoc/>
-        </member>
-        <member name="P:CRUD_MVVM.ViewModels.UsuarioViewModel.UsuarioDto">
-            <inheritdoc cref="F:CRUD_MVVM.ViewModels.UsuarioViewModel.usuarioDto"/>
-        </member>
-        <member name="P:CRUD_MVVM.ViewModels.UsuarioViewModel.TituloPagina">
-            <inheritdoc cref="F:CRUD_MVVM.ViewModels.UsuarioViewModel.tituloPagina"/>
-        </member>
-        <member name="P:CRUD_MVVM.ViewModels.UsuarioViewModel.LoadingEsVisible">
-            <inheritdoc cref="F:CRUD_MVVM.ViewModels.UsuarioViewModel.loadingEsVisible"/>
-        </member>
-        <member name="F:CRUD_MVVM.ViewModels.UsuarioViewModel.guardarCommand">
-            <summary>The backing field for <see cref="P:CRUD_MVVM.ViewModels.UsuarioViewModel.GuardarCommand"/>.</summary>
-        </member>
-        <member name="P:CRUD_MVVM.ViewModels.UsuarioViewModel.GuardarCommand">
-            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IAsyncRelayCommand"/> instance wrapping <see cref="M:CRUD_MVVM.ViewModels.UsuarioViewModel.Guardar"/>.</summary>
-        </member>
         <member name="T:CRUD_MVVM.Resource">
             <summary>
             Android Resource Designer class.
@@ -95,18 +49,6 @@
         <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangingArgs.FechaRegistro">
             <summary>The cached <see cref="T:System.ComponentModel.PropertyChangingEventArgs"/> instance for all "FechaRegistro" generated properties.</summary>
         </member>
-        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangingArgs.ListaUsuario">
-            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangingEventArgs"/> instance for all "ListaUsuario" generated properties.</summary>
-        </member>
-        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangingArgs.UsuarioDto">
-            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangingEventArgs"/> instance for all "UsuarioDto" generated properties.</summary>
-        </member>
-        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangingArgs.TituloPagina">
-            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangingEventArgs"/> instance for all "TituloPagina" generated properties.</summary>
-        </member>
-        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangingArgs.LoadingEsVisible">
-            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangingEventArgs"/> instance for all "LoadingEsVisible" generated properties.</summary>
-        </member>
         <member name="T:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangedArgs">
             <summary>
             A helper type providing cached, reusable <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instances
@@ -127,18 +69,6 @@
         </member>
         <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangedArgs.FechaRegistro">
             <summary>The cached <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instance for all "FechaRegistro" generated properties.</summary>
-        </member>
-        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangedArgs.ListaUsuario">
-            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instance for all "ListaUsuario" generated properties.</summary>
-        </member>
-        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangedArgs.UsuarioDto">
-            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instance for all "UsuarioDto" generated properties.</summary>
-        </member>
-        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangedArgs.TituloPagina">
-            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instance for all "TituloPagina" generated properties.</summary>
-        </member>
-        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangedArgs.LoadingEsVisible">
-            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instance for all "LoadingEsVisible" generated properties.</summary>
         </member>
     </members>
 </doc>

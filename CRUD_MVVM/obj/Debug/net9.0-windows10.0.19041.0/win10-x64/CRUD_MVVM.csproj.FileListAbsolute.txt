@@ -517,3 +517,4 @@ C:\Users\anieves\source\repos\CRUD_MVVM\CRUD_MVVM\bin\Debug\net9.0-windows10.0.1
 C:\Users\anieves\source\repos\CRUD_MVVM\CRUD_MVVM\bin\Debug\net9.0-windows10.0.19041.0\win10-x64\zh-Hans\Microsoft.Data.SqlClient.resources.dll
 C:\Users\anieves\source\repos\CRUD_MVVM\CRUD_MVVM\bin\Debug\net9.0-windows10.0.19041.0\win10-x64\zh-Hant\Microsoft.Data.SqlClient.resources.dll
 C:\Users\anieves\source\repos\CRUD_MVVM\CRUD_MVVM\bin\Debug\net9.0-windows10.0.19041.0\win10-x64\Microsoft.Data.SqlClient.SNI.dll
+C:\Users\anieves\source\repos\CRUD_MVVM\CRUD_MVVM\obj\Debug\net9.0-windows10.0.19041.0\win10-x64\CRUD_MVVM.sourcelink.json

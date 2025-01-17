@@ -12,5 +12,4 @@ namespace CRUD_MVVM
             BindingContext = viewModel;
         }
     }
-
 }

@@ -20,12 +20,7 @@ namespace CRUD_MVVM
                     fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
                 });
 
-            // Configuración del contexto de la base de datos (UsuarioDBContext)
-            var dbContext = new UsuarioDBContext();
-            dbContext.Database.EnsureCreated();
-            dbContext.Dispose();
-
-            builder.Services.AddDbContext<UsuarioDBContext>();
+            
 
             builder.Services.AddSingleton<IRepository<Usuario>, Repository<Usuario>>();
             builder.Services.AddSingleton<UsuarioRepository>();
@@ -34,12 +29,27 @@ namespace CRUD_MVVM
             builder.Services.AddScoped<UsuarioRepository, UsuarioRepository>(); // Registrar el repositorio
 
             // Registro de las páginas y ViewModels
-            builder.Services.AddTransient<UsuarioPage>();
-            builder.Services.AddTransient<UsuarioViewModel>();
+            builder.Services.AddTransient<VerPedidosPage>();
+            builder.Services.AddTransient<VerPedidosViewModel>();
 
             builder.Services.AddTransient<MainPage>();
             builder.Services.AddTransient<MainViewModel>();
 
+            builder.Services.AddSingleton<UsuarioRepository>();
+            builder.Services.AddTransient<UsuarioViewModel>();
+            builder.Services.AddTransient<UsuarioPage>();
+
+            builder.Services.AddSingleton<PedidoRepository>();
+            builder.Services.AddTransient<PedidoViewModel>();
+            builder.Services.AddTransient<PedidoPage>();
+
+            builder.Services.AddSingleton<UsuarioRepository>();  // Inyecta el UsuarioRepository
+            builder.Services.AddSingleton<MainViewModel>();
+
+
+            Routing.RegisterRoute("PedidoPage", typeof(PedidoPage));
+            Routing.RegisterRoute("UsuariosPage", typeof(UsuarioPage));
+            Routing.RegisterRoute("VerPedidosPage", typeof(VerPedidosPage));
             Routing.RegisterRoute(nameof(UsuarioPage), typeof(UsuarioPage));
 
 #if DEBUG

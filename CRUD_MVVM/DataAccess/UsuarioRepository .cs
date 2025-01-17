@@ -17,6 +17,11 @@ namespace CRUD_MVVM.DataAccess
         {
             _usuarioRepository = usuarioRepository;
         }
+
+        public UsuarioRepository()
+        {
+        }
+
         public async Task<Usuario> AddUsuarioAsync(Usuario usuario)
         {
             

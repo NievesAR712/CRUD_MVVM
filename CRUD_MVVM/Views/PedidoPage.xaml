@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:viewModels="clr-namespace:CRUD_MVVM.ViewModels"
+             x:Class="CRUD_MVVM.Views.PedidoPage"
+             Title="Nuevo Pedido"
+             >
+
+    <VerticalStackLayout Padding="20">
+
+        <!-- Indicador de carga -->
+        <ActivityIndicator IsVisible="{Binding IsLoading}" 
+                           IsRunning="{Binding IsLoading}" 
+                           Color="Blue" 
+                           HeightRequest="30" />
+
+        <!-- Fecha de Pedido -->
+        <Label Text="Fecha de Pedido"/>
+        <DatePicker Date="{Binding Pedido.FechaPedido}" Margin="0,0,0,10"/>
+
+        <!-- Monto Total -->
+        <Label Text="Monto Total"/>
+        <Entry Text="{Binding Pedido.MontoTotal}" Margin="0,0,0,10" Keyboard="Numeric"/>
+
+        <!-- Estado -->
+        <Label Text="Estado"/>
+        <Entry Text="{Binding Pedido.Estado}" Margin="0,0,0,10"/>
+
+        <!-- Seleccionar Usuario -->
+        <Label Text="Usuario"/>
+        <Picker ItemsSource="{Binding Usuarios}" 
+                SelectedItem="{Binding UsuarioSeleccionado, Mode=TwoWay}" 
+                ItemDisplayBinding="{Binding NombreCompleto}" 
+                Margin="0,0,0,10"/>
+
+        <!-- Botón Guardar -->
+        <Button Text="Guardar" 
+                Command="{Binding GuardarPedidoCommand}" 
+                Background="#4b6363" 
+                Margin="100,50,100,50" 
+                FontSize="Body"/>
+    </VerticalStackLayout>
+</ContentPage>

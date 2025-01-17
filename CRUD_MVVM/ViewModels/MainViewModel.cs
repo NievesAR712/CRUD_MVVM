@@ -1,88 +1,115 @@
-﻿using CommunityToolkit.Mvvm.ComponentModel;
-using CommunityToolkit.Mvvm.Messaging;
-using CommunityToolkit.Mvvm.Input;
-using CRUD_MVVM.DataAccess;
+﻿using CRUD_MVVM.DataAccess;
 using CRUD_MVVM.DTOs;
-using CRUD_MVVM.Utilidades;
 using CRUD_MVVM.Modelos;
 using System.Collections.ObjectModel;
+using System.Linq;
+using System.Threading.Tasks;
+using System.Windows.Input;
+using System.ComponentModel;
 using CRUD_MVVM.Views;
-using static CRUD_MVVM.DataAccess.UsuarioRepository;
 
 namespace CRUD_MVVM.ViewModels
 {
-    public partial class MainViewModel : ObservableObject
+    public class MainViewModel : INotifyPropertyChanged
     {
         private readonly UsuarioRepository _usuarioRepository;
+        private bool _isLoading;
 
-        [ObservableProperty]
-        private ObservableCollection<UsuarioDTO> listaUsuario = new ObservableCollection<UsuarioDTO>();
+        private ObservableCollection<UsuarioDTO> _usuarios { get; set; }
 
-        public MainViewModel(UsuarioRepository usuarioRepository)
+        public ObservableCollection<UsuarioDTO> Usuarios
         {
-            _usuarioRepository = usuarioRepository;
-
-            MainThread.BeginInvokeOnMainThread(new Action(async () => await Obtener()));
-
-            WeakReferenceMessenger.Default.Register<UsuarioMensajeria>(this, (r, m) =>
+            get { return _usuarios; }
+            set
             {
-                UsuarioMensajeRecibido(m.Value);
-            });
-        }
-
-        public async Task Obtener()
-        {
-            var lista = await _usuarioRepository.GetUsuariosAsync();
-            if (lista.Any())
-            {
-                foreach (var item in lista)
+                if (_usuarios != value)
                 {
-                    ListaUsuario.Add(new UsuarioDTO
-                    {
-                        IdUsuario = item.IdUsuario,
-                        NombreCompleto = item.NombreCompleto,
-                        Correo = item.Correo,
-                        Password = item.Password,
-                        FechaRegistro = item.FechaRegistro,
-                    });
+                    _usuarios = value;
+                    OnPropertyChanged(nameof(Usuarios)); // Notifica el cambio
                 }
             }
         }
 
-        private void UsuarioMensajeRecibido(UsuarioMensaje usuarioMensaje)
+        public bool IsLoading
         {
-            var usuarioDto = usuarioMensaje.UsuarioDto;
-
-            if (usuarioMensaje.EsCrear)
+            get => _isLoading;
+            set
             {
-                ListaUsuario.Add(usuarioDto);
+                if (_isLoading != value)
+                {
+                    _isLoading = value;
+                    OnPropertyChanged(nameof(IsLoading));
+                }
+            }
+        }
+
+        // Comandos
+        public ICommand CargarUsuariosCommand { get; }
+        public ICommand EliminarCommand { get; }
+        public ICommand NavegarCrearUsuarioCommand { get; }
+        public ICommand NavegarEditarUsuarioCommand { get; }
+
+        // Constructor con inyección de dependencias
+        public MainViewModel(UsuarioRepository usuarioRepository)
+        {
+            _usuarioRepository = usuarioRepository;
+            Usuarios = new ObservableCollection<UsuarioDTO>();
+
+            // Inicializar comandos
+            CargarUsuariosCommand = new Command(async () => await CargarUsuarios());
+            EliminarCommand = new Command<UsuarioDTO>(async (usuario) => await Eliminar(usuario));
+            NavegarCrearUsuarioCommand = new Command(async () => await NavegarCrearUsuario());
+            NavegarEditarUsuarioCommand = new Command<UsuarioDTO>(async (usuario) => await NavegarEditarUsuario(usuario));
+
+            // Cargar usuarios al iniciar
+            _ = CargarUsuarios();
+        }
+
+        // Cargar todos los usuarios
+        private async Task CargarUsuarios()
+        {
+            IsLoading = true;
+
+            Usuarios.Clear();
+            var usuarios = await _usuarioRepository.GetUsuariosAsync();
+
+            foreach (var usuario in usuarios)
+            {
+                Usuarios.Add(new UsuarioDTO
+                {
+                    IdUsuario = usuario.IdUsuario,
+                    NombreCompleto = usuario.NombreCompleto,
+                    Correo = usuario.Correo,
+                    Password = usuario.Password,
+                    FechaRegistro = usuario.FechaRegistro
+                });
+            }
+
+            IsLoading = false;
+        }
+
+        public void AgregarUsuarioALista(UsuarioDTO usuarioDto, bool esCrear)
+        {
+            if (esCrear)
+            {
+                Usuarios.Add(usuarioDto);
             }
             else
             {
-                var encontrado = ListaUsuario
-                    .First(e => e.IdUsuario == usuarioDto.IdUsuario);
-                encontrado.NombreCompleto = usuarioDto.NombreCompleto;
-                encontrado.Correo = usuarioDto.Correo;
-                encontrado.Password = usuarioDto.Password;
-                encontrado.FechaRegistro = usuarioDto.FechaRegistro;
+                var usuario = Usuarios.FirstOrDefault(u => u.IdUsuario == usuarioDto.IdUsuario);
+                if (usuario != null)
+                {
+                    usuario.NombreCompleto = usuarioDto.NombreCompleto;
+                    usuario.Correo = usuarioDto.Correo;
+                    usuario.Password = usuarioDto.Password;
+                    usuario.FechaRegistro = usuarioDto.FechaRegistro;
+                    // Notificar cambios al objeto en la lista
+                    OnPropertyChanged(nameof(Usuarios));
+                }
             }
         }
 
-        [RelayCommand]
-        private async Task Crear()
-        {
-            var uri = $"{nameof(UsuarioPage)}?id=0";
-            await Shell.Current.GoToAsync(uri);
-        }
 
-        [RelayCommand]
-        private async Task Editar(UsuarioDTO usuarioDTO)
-        {
-            var uri = $"{nameof(UsuarioPage)}?id={usuarioDTO.idUsuario}";
-            await Shell.Current.GoToAsync(uri);
-        }
-
-        [RelayCommand]
         private async Task Eliminar(UsuarioDTO usuarioDto)
         {
             bool answer = await Shell.Current.DisplayAlert("Mensaje", "Desea eliminar el Usuario?", "Si", "NO");
@@ -93,9 +120,29 @@ namespace CRUD_MVVM.ViewModels
                 if (usuario != null)
                 {
                     await _usuarioRepository.DeleteUsuarioAsync(usuarioDto.idUsuario);
-                    ListaUsuario.Remove(usuarioDto);
+                    Usuarios.Remove(usuarioDto);
                 }
             }
+        }
+
+        // Navegar a la página de creación de usuario
+        private async Task NavegarCrearUsuario()
+        {
+            await Shell.Current.GoToAsync(nameof(UsuarioPage));
+        }
+
+        // Navegar a la página de edición de usuario
+        private async Task NavegarEditarUsuario(UsuarioDTO  usuarioDTO)
+        {
+            await Shell.Current.GoToAsync($"{nameof(UsuarioPage)}?UsuarioId={usuarioDTO.IdUsuario}");
+        }
+
+        // Notificar cambios a la vista
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        protected virtual void OnPropertyChanged(string propertyName)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
     }
 }
