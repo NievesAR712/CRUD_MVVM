@@ -1,9 +1,11 @@
-﻿using CRUD_MVVM.DataAccess;
-using CRUD_MVVM.Modelos;
-using CRUD_MVVM.ViewModels;
+﻿using CRUD_MVVM.InfrastructureLayer;
+using CRUD_MVVM.InfrastructureLayer.Utilidades;
+using CRUD_MVVM.DomainLayer.Modelos;
+using CRUD_MVVM.PresentationLayer.ViewModels;
 using CRUD_MVVM.Views;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
-using static CRUD_MVVM.DataAccess.UsuarioRepository;
+using static CRUD_MVVM.InfrastructureLayer.UsuarioRepository;
 
 namespace CRUD_MVVM
 {
@@ -20,9 +22,11 @@ namespace CRUD_MVVM
                     fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
                 });
 
-            
 
-            builder.Services.AddSingleton<IRepository<Usuario>, Repository<Usuario>>();
+            builder.Services.AddDbContext<ApplicationDbContext>(options =>
+            options.UseSqlServer("Server=(localdb)\\NievesLocal;Database=CRUD_MVVM;Trusted_Connection=True;"));
+
+
             builder.Services.AddSingleton<UsuarioRepository>();
 
             // Registro de los servicios para la inyección de dependencias
@@ -46,6 +50,7 @@ namespace CRUD_MVVM
             builder.Services.AddSingleton<UsuarioRepository>();  // Inyecta el UsuarioRepository
             builder.Services.AddSingleton<MainViewModel>();
 
+           
 
             Routing.RegisterRoute("PedidoPage", typeof(PedidoPage));
             Routing.RegisterRoute("UsuariosPage", typeof(UsuarioPage));

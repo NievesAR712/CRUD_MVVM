@@ -3,19 +3,27 @@ build_property.EnableAotAnalyzer =
 build_property.EnableSingleFileAnalyzer = true
 build_property.EnableTrimAnalyzer = false
 build_property.IncludeAllContentForSelfExtract = 
+build_property.TargetFramework = net9.0-android
+build_property.TargetFramework = net9.0-android
+build_property.TargetPlatformMinVersion = 
+build_property.TargetPlatformMinVersion = 
+build_property.UsingMicrosoftNETSdkWeb = 
+build_property.UsingMicrosoftNETSdkWeb = 
+build_property.ProjectTypeGuids = 
+build_property.ProjectTypeGuids = 
+build_property.InvariantGlobalization = false
+build_property.InvariantGlobalization = false
+build_property.PlatformNeutralAssembly = 
+build_property.PlatformNeutralAssembly = 
+build_property.EnforceExtendedAnalyzerRules = 
+build_property.EnforceExtendedAnalyzerRules = 
+build_property._SupportedPlatformList = Linux,macOS,Windows
+build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.MvvmToolkitEnableINotifyPropertyChangingSupport = true
 build_property._MvvmToolkitIsUsingWindowsRuntimePack = false
 build_property.CsWinRTComponent = 
 build_property.CsWinRTAotOptimizerEnabled = 
 build_property.CsWinRTAotWarningLevel = 
-build_property.TargetFramework = net9.0-android
-build_property.TargetPlatformMinVersion = 
-build_property.UsingMicrosoftNETSdkWeb = 
-build_property.ProjectTypeGuids = 
-build_property.InvariantGlobalization = false
-build_property.PlatformNeutralAssembly = 
-build_property.EnforceExtendedAnalyzerRules = 
-build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = CRUD_MVVM
 build_property.ProjectDir = C:\Users\anieves\source\repos\CRUD_MVVM\CRUD_MVVM\
 build_property.EnableComHosting = 
@@ -35,11 +43,29 @@ build_metadata.AdditionalFiles.ManifestResourceName = CRUD_MVVM.AppShell.xaml
 build_metadata.AdditionalFiles.TargetPath = AppShell.xaml
 build_metadata.AdditionalFiles.RelativePath = AppShell.xaml
 
-[C:/Users/anieves/source/repos/CRUD_MVVM/CRUD_MVVM/MainPage.xaml]
+[C:/Users/anieves/source/repos/CRUD_MVVM/CRUD_MVVM/PresentationLayer/Views/MainPage.xaml]
 build_metadata.AdditionalFiles.GenKind = Xaml
-build_metadata.AdditionalFiles.ManifestResourceName = CRUD_MVVM.MainPage.xaml
-build_metadata.AdditionalFiles.TargetPath = MainPage.xaml
-build_metadata.AdditionalFiles.RelativePath = MainPage.xaml
+build_metadata.AdditionalFiles.ManifestResourceName = CRUD_MVVM.PresentationLayer.Views.MainPage.xaml
+build_metadata.AdditionalFiles.TargetPath = PresentationLayer\Views\MainPage.xaml
+build_metadata.AdditionalFiles.RelativePath = PresentationLayer\Views\MainPage.xaml
+
+[C:/Users/anieves/source/repos/CRUD_MVVM/CRUD_MVVM/PresentationLayer/Views/PedidoPage.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = CRUD_MVVM.PresentationLayer.Views.PedidoPage.xaml
+build_metadata.AdditionalFiles.TargetPath = PresentationLayer\Views\PedidoPage.xaml
+build_metadata.AdditionalFiles.RelativePath = PresentationLayer\Views\PedidoPage.xaml
+
+[C:/Users/anieves/source/repos/CRUD_MVVM/CRUD_MVVM/PresentationLayer/Views/UsuarioPage.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = CRUD_MVVM.PresentationLayer.Views.UsuarioPage.xaml
+build_metadata.AdditionalFiles.TargetPath = PresentationLayer\Views\UsuarioPage.xaml
+build_metadata.AdditionalFiles.RelativePath = PresentationLayer\Views\UsuarioPage.xaml
+
+[C:/Users/anieves/source/repos/CRUD_MVVM/CRUD_MVVM/PresentationLayer/Views/VerPedidosPage.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = CRUD_MVVM.PresentationLayer.Views.VerPedidosPage.xaml
+build_metadata.AdditionalFiles.TargetPath = PresentationLayer\Views\VerPedidosPage.xaml
+build_metadata.AdditionalFiles.RelativePath = PresentationLayer\Views\VerPedidosPage.xaml
 
 [C:/Users/anieves/source/repos/CRUD_MVVM/CRUD_MVVM/Resources/Styles/Colors.xaml]
 build_metadata.AdditionalFiles.GenKind = Xaml
@@ -52,21 +78,3 @@ build_metadata.AdditionalFiles.GenKind = Xaml
 build_metadata.AdditionalFiles.ManifestResourceName = CRUD_MVVM.Resources.Styles.Styles.xaml
 build_metadata.AdditionalFiles.TargetPath = Resources\Styles\Styles.xaml
 build_metadata.AdditionalFiles.RelativePath = Resources\Styles\Styles.xaml
-
-[C:/Users/anieves/source/repos/CRUD_MVVM/CRUD_MVVM/Views/PedidoPage.xaml]
-build_metadata.AdditionalFiles.GenKind = Xaml
-build_metadata.AdditionalFiles.ManifestResourceName = CRUD_MVVM.Views.PedidoPage.xaml
-build_metadata.AdditionalFiles.TargetPath = Views\PedidoPage.xaml
-build_metadata.AdditionalFiles.RelativePath = Views\PedidoPage.xaml
-
-[C:/Users/anieves/source/repos/CRUD_MVVM/CRUD_MVVM/Views/UsuarioPage.xaml]
-build_metadata.AdditionalFiles.GenKind = Xaml
-build_metadata.AdditionalFiles.ManifestResourceName = CRUD_MVVM.Views.UsuarioPage.xaml
-build_metadata.AdditionalFiles.TargetPath = Views\UsuarioPage.xaml
-build_metadata.AdditionalFiles.RelativePath = Views\UsuarioPage.xaml
-
-[C:/Users/anieves/source/repos/CRUD_MVVM/CRUD_MVVM/Views/VerPedidosPage.xaml]
-build_metadata.AdditionalFiles.GenKind = Xaml
-build_metadata.AdditionalFiles.ManifestResourceName = CRUD_MVVM.Views.VerPedidosPage.xaml
-build_metadata.AdditionalFiles.TargetPath = Views\VerPedidosPage.xaml
-build_metadata.AdditionalFiles.RelativePath = Views\VerPedidosPage.xaml
